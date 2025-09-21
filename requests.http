@@ -1,0 +1,74 @@
+### Signup a new user
+POST http://localhost:5000/api/auth/signup
+Content-Type: application/json
+
+{
+  "name": "hemin",
+  "email": "hemin@college.edu",
+  "collegeID": "CLG126",
+  "password": "mypassword"
+}
+### Login with existing user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "hemin@college.edu",
+  "password": "mypassword"
+}
+### Create a swap request
+POST http://localhost:5000/api/swaps/request
+Content-Type: application/json
+
+{
+  "fromItem": "68cfd3a155afb1dcd0b72411",
+  "toItem": "68cfccd473e1a1f3ba1adf71",
+  "message": "Would you like to swap?"
+}
+### Accept/reject a swap request
+
+PATCH http://localhost:5000/api/swaps/68cfd3cb55afb1dcd0b72415
+Content-Type: application/json
+
+{
+  "status": "rejected"
+}
+
+### Add a new item
+POST http://localhost:5000/api/items/create
+Content-Type: application/json
+
+{
+  "title": "Scientific Calculator",
+  "description": "Casio FX-991ES Plus, lightly used",
+  "category": "box",
+  "owner": "68cfc95d528060a33e796b99"
+}
+### Get all items
+GET http://localhost:5000/api/items
+
+### Get all swap requests
+GET http://localhost:5000/api/swaps
+
+### Update item
+PUT http://localhost:5000/api/items/68cfb541414270878ca2cc8b
+Content-Type: application/json
+
+{
+  "title": "Updated Book",
+  "description": "New description"
+}
+
+### Delete item
+DELETE http://localhost:5000/api/items/68cfb541414270878ca2cc8b
+
+### Update swap
+PUT http://localhost:5000/api/swaps/68cfbb21528060a33e796b8e
+Content-Type: application/json
+
+{
+  "message": "Updated swap message"
+}
+
+### Delete swap
+DELETE http://localhost:5000/api/swaps/68cfbb21528060a33e796b8e
